@@ -1,0 +1,106 @@
+name: sperm_analyzer_ai
+description: تطبيق متقدم لتحليل الحيوانات المنوية باستخدام الذكاء الاصطناعي
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI & Navigation
+  cupertino_icons: ^1.0.6
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
+  
+  # State Management
+  provider: ^6.1.1
+  riverpod: ^2.4.9
+  flutter_riverpod: ^2.4.9
+  
+  # Networking
+  http: ^1.1.2
+  dio: ^5.4.0
+  
+  # Camera & Image Processing
+  camera: ^0.10.5+5
+  image_picker: ^1.0.4
+  video_player: ^2.8.1
+  image: ^4.1.3
+  
+  # Charts & Visualization
+  fl_chart: ^0.65.0
+  charts_flutter: ^0.12.0
+  syncfusion_flutter_charts: ^23.2.7
+  
+  # File Operations
+  path_provider: ^2.1.1
+  file_picker: ^6.1.1
+  share_plus: ^7.2.1
+  permission_handler: ^11.1.0
+  
+  # JSON & Data
+  json_annotation: ^4.8.1
+  csv: ^5.0.2
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  
+  # Utilities
+  uuid: ^4.2.1
+  logging: ^1.2.0
+  flutter_native_splash: ^2.3.6
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.7
+  mocktail: ^1.0.2
+  test: ^1.24.6
+  fake_async: ^1.3.1
+  flutter_driver:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  generate: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/videos/
+  
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
+          weight: 700
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: "#0D1B2A"
+  image: "assets/images/splash_logo.png"
+  android_12:
+    color: "#0D1B2A"
+    image: "assets/images/splash_logo.png"

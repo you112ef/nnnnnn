@@ -1,0 +1,50 @@
+# SpermAnalyzerAI - Docker Compose Configuration
+version: '3.8'
+
+services:
+  sperm-analyzer-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sperm-analyzer-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+      - ./models:/app/models
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - DEBUG=true
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - UPLOAD_PATH=/app/uploads
+      - RESULTS_PATH=/app/results
+      - MODEL_PATH=/app/models
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+
+  # Optional: Redis for caching (can be enabled later)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: sperm-analyzer-redis
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
+
+networks:
+  default:
+    name: sperm-analyzer-network
